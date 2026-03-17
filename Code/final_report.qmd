@@ -17,3 +17,9 @@ In part 1, they used a simple linear regression. In part 2, they used a Kruskal-
 
 b. Figure needed
 They should make a boxplot. The x-axis should be the water year classification (wet, above normal, below normal, dry, critical drought), and the y-axis should be the flooded wetland area (m²). The visual components would include boxes representing the interquartile range for each water year category, with a thick center line explicitly showing the median flooded area, and whiskers demonstrating the overall spread of the data.
+
+c. Suggestions for rewriting
+Precipitation did not significantly predict flooded wetland area in the San Joaquin River Delta (Linear regression: test statistic = [value], df = [value], p = 0.11). Furthermore, the median flooded wetland area did not significantly differ across the five water year classifications (Kruskal-Wallis: test statistic = [value], df = [value], p = 0.12).
+
+d. Interpretation
+One additional variable that could influence the flooded area is "Active Water Management Status," which is a categorical variable (e.g., actively managed vs. unmanaged). This would influence wetland flooding because managers frequently pump water into these habitats artificially to support breeding waterfowl, overriding natural precipitation levels or drought conditions.
