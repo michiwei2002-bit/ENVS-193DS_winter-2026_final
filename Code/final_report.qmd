@@ -10,5 +10,10 @@ output: html_document
 
 
 
+Problem 1
 
+a. Transparent statistical methods
+In part 1, they used a simple linear regression. In part 2, they used a Kruskal-Wallis test.
 
+b. Figure needed
+They should make a boxplot. The x-axis should be the water year classification (wet, above normal, below normal, dry, critical drought), and the y-axis should be the flooded wetland area (m²). The visual components would include boxes representing the interquartile range for each water year category, with a thick center line explicitly showing the median flooded area, and whiskers demonstrating the overall spread of the data.
