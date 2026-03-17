@@ -8,6 +8,8 @@ output: html_document
 [Link to my GitHub Repository](https://github.com/michiwei2002-bit/ENVS-193DS_winter-2026_final)
 
 
+library(janitor)
+
 
 
 Problem 1
@@ -23,3 +25,49 @@ Precipitation did not significantly predict flooded wetland area in the San Joaq
 
 d. Interpretation
 One additional variable that could influence the flooded area is "Active Water Management Status," which is a categorical variable (e.g., actively managed vs. unmanaged). This would influence wetland flooding because managers frequently pump water into these habitats artificially to support breeding waterfowl, overriding natural precipitation levels or drought conditions.
+
+
+Problem 2
+
+```{r}
+kelp <- read_csv(here("Data", "Annual_Kelp_All_Years_20250903.csv"))
+```
+
+
+a.
+```{r}
+kelp_clean <- kelp %>%
+  # 1. Standardize column names to snake_case so they are easy to type
+  clean_names() %>% 
+  
+  # 2. Keep only the data for the three specific sites we care about
+  filter(site %in% c("IVEE", "NAPL", "CARP")) %>% 
+  
+  # 3. Remove this specific anomalous data point
+  filter(!(date == "2000-09-22" & transect == "6" & quad == "40")) %>% 
+  
+  # 4. Create a new column with the full, readable names of the sites
+  mutate(site_name = case_when(
+    site == "NAPL" ~ "Naples",
+    site == "IVEE" ~ "Isla Vista",
+    site == "CARP" ~ "Carpinteria"
+  )) %>% 
+  
+  # 5. Convert that new column to a factor and explicitly set the order for the plot legend
+  mutate(site_name = as_factor(site_name),
+         site_name = fct_relevel(site_name, "Naples", "Isla Vista", "Carpinteria")) %>% 
+  
+  # 6. Group the data by site and year so we can calculate annual averages per site
+  group_by(site_name, year) %>% 
+  
+  # 7. Calculate the mean number of fronds for those groups
+  summarize(mean_fronds = mean(fronds)) %>% 
+  
+  # 8. Ungroup the data to prevent accidental grouped math later on
+  ungroup()
+
+# Display the required outputs
+slice_sample(kelp_clean, n = 5)
+str(kelp_clean)
+```
+
