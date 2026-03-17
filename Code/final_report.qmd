@@ -1,0 +1,14 @@
+---
+title: "ENVS 193 Final"
+author: "Michael Weigand"
+date: "2026-03-17"
+output: html_document
+---
+
+[Link to my GitHub Repository](https://github.com/michiwei2002-bit/ENVS-193DS_winter-2026_final)
+
+
+
+
+
+
